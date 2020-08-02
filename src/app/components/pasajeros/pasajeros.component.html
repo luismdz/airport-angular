@@ -1,0 +1,83 @@
+<div class="top-container">
+  <h4 class="mb-4">Pasajeros</h4>
+  <button class="btn btn-info"
+    *ngIf="nuevo"
+    (click)="nuevo = !nuevo">
+    Nuevo
+  </button>
+</div>
+
+<div class="form-container"
+  *ngIf="!nuevo">
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstname">Nombre</label>
+        <input type="text"
+          class="form-control"
+          placeholder="Nombre del pasajero"
+          name="firstname"
+          [(ngModel)]="pasajero.firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastname">Apellido</label>
+        <input type="text"
+          class="form-control"
+          placeholder="Apellido del pasajero"
+          name="lastname"
+          [(ngModel)]="pasajero.lastName">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo Electrónico</label>
+      <input type="email"
+        class="form-control"
+        placeholder="pasajero@correo.com"
+        name="email"
+        [(ngModel)]="pasajero.email">
+      <small class="form-text text-muted">No compartiremos tu información personal</small>
+    </div>
+    <div class="form-group">
+      <label for="age">Edad</label>
+      <input type="number"
+        class="form-control w-50"
+        name="age"
+        [(ngModel)]="pasajero.age">
+    </div>
+  </form>
+  <button class="
+        btn
+        btn-info mb-4"
+    (click)="agregarPasajero()">Agregar</button>
+</div>
+<ul *ngIf="nuevo && mostrarLista"
+  class="list-group">
+  <li *ngFor="let pasajero of pasajeros; let i = index"
+    class="list-group-item">
+    <div class="content">
+      <div class="name">
+        {{ pasajero.firstName }} {{ pasajero.lastName }}
+      </div>
+      <div class="email">
+        <i class="fas fa-envelope"></i>
+        <p>
+          {{ pasajero.email }}
+        </p>
+
+      </div>
+      <div>
+        <span>Edad:</span>
+        <p>
+          {{ pasajero. age }}
+        </p>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-danger"
+        (click)="eliminar(i)">
+        Eliminar
+      </button>
+    </div>
+  </li>
+</ul>

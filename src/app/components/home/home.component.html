@@ -1,0 +1,49 @@
+<div class="form-container">
+  <h4 class="display-4 mb-4">Book your flight!</h4>
+  <form>
+    <div class="form-group">
+      <label for="vuelos">Vuelo</label>
+      <select name="paises"
+        id="paises"
+        class="custom-select"
+        (change)="getDataVuelo($event.target.value)">
+        <option value=null
+          selected
+          disabled>
+          Seleccione el vuelo
+        </option>
+        <option [value]="vuelo.id"
+          *ngFor="let vuelo of vuelos">
+          {{ vuelo.id }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group two-columns">
+      <label for="horaSalida">Hora de salida</label>
+      <input type="time"
+        name="horaSalida"
+        id="horaSalida"
+        class="form-control"
+        disabled
+        [(ngModel)]="vuelo.horaSalida"
+        value="05:00:00">
+    </div>
+    <div class="form-group two-columns">
+      <label for="tiempoVuelo">Tiempo de vuelo</label>
+      <input type="text"
+        name="tiempoVuelo"
+        id="tiempoVuelo"
+        class="form-control"
+        disabled
+        [(ngModel)]="vuelo.tiempo"
+        value="2 horas 30 mins">
+    </div>
+  </form>
+  <hr>
+  <app-pasajeros (pasajeroAgregado)="obtener($event)"
+    [mostrarLista]="true"></app-pasajeros>
+  <button class="btn btn-dark"
+    *ngIf="vuelo.pasajeros"
+    (click)="registrar()">Registrar Vuelo</button>
+</div>

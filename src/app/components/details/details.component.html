@@ -1,0 +1,43 @@
+<button routerLink='/listaVuelos'
+  class="btn btn-info mb-4">Regresar</button>
+<h2 class="display-4">Vuelo {{ vuelo.id }}</h2>
+
+<div class="content mt-4">
+  <div>
+    <span>Pais Destino: </span>
+    <p>{{ vuelo.paisDestino }}</p>
+  </div>
+
+  <div>
+    <span>Hora de salida: </span>
+    <p>{{ vuelo.horaSalida }}</p>
+  </div>
+
+  <div>
+    <span>Tiempo del vuelo: </span>
+    <p>{{ vuelo.tiempo }}</p>
+  </div>
+
+
+  <ul class="list-group my-4">
+    <li class="bg-light list-group-item font-weight-bold">Pasajeros</li>
+    <li class="list-group-item"
+      *ngFor="let pasajero of vuelo.pasajeros; let i = index">
+      <div class="name">
+        {{ pasajero.firstName }} {{ pasajero.lastName }}
+      </div>
+      <div class="button">
+        <button class="btn btn-danger"
+          *ngIf="limite > 1"
+          (click)="borrar(i)">Eliminar</button>
+      </div>
+    </li>
+  </ul>
+
+  <button (click)="actualizar()"
+    class="btn btn-dark">Actualizar Vuelo</button>
+  <hr>
+
+  <app-pasajeros (pasajeroAgregado)="obtener($event)"
+    [mostrarLista]="mostrar"></app-pasajeros>
+</div>

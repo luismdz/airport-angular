@@ -1,0 +1,51 @@
+form {
+  margin: 2rem auto;
+}
+
+.list-group {
+  margin: 2rem 0;
+
+  .list-group-item {
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        i,
+        span {
+          display: inline-block;
+          margin-right: .75rem;
+          font-weight: bold;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .name {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+
+    .buttons {
+      button {
+        display: inline-block;
+      }
+    }
+
+
+  }
+}

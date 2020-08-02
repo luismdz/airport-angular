@@ -1,0 +1,53 @@
+<div class="form-container">
+  <h4 class="display-4 mb-4">Registrar nuevo vuelo</h4>
+  <form>
+    <div class="form-group">
+      <label for="pais">Pais</label>
+      <select [(ngModel)]="vuelo.paisDestino"
+        name="paises"
+        id="paises"
+        class="custom-select">
+        <option value=null
+          selected
+          disabled>
+          Seleccione el pais
+        </option>
+        <option *ngFor="let pais of paises"
+          [value]="pais">{{ pais }}</option>
+      </select>
+    </div>
+
+    <div class="form-group two-columns">
+      <label for="horaSalida">Hora de salida</label>
+      <input type="time"
+        name="horaSalida"
+        id="horaSalida"
+        class="form-control"
+        value="05:00:00"
+        [(ngModel)]="vuelo.horaSalida">
+    </div>
+    <div class="form-group two-columns">
+      <label for="tiempoVuelo">Tiempo de vuelo</label>
+      <div class="input-group">
+        <div>
+          <input type="number"
+            class="form-control"
+            min="0"
+            name="hora"
+            [(ngModel)]="tiempo.hora"> <span>horas</span>
+        </div>
+        <div>
+          <input type="number"
+            class="form-control"
+            min="0"
+            max="59"
+            name="minutos"
+            [(ngModel)]="tiempo.minutos"> <span>minutos</span>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <button class="btn btn-info"
+    (click)="agregarVuelo()">Agregar</button>
+</div>

@@ -1,0 +1,37 @@
+<h4 class="display-4">Listado de Vuelos Registrados</h4>
+
+<div class="list-group mt-4">
+  <li *ngFor="let vuelo of vuelos"
+    class="list-group-item"
+    (click)="verDetalle(vuelo)">
+    <img src="assets/images/airplane.png"
+      alt="airplane">
+    <div class="content">
+      <span class="id">{{ vuelo.id }}</span>
+      <div>
+        <span>Pais Destino: </span>
+        <p>{{ vuelo.paisDestino }}</p>
+      </div>
+
+      <div>
+        <span>Hora de salida: </span>
+        <p>{{ vuelo.horaSalida }}</p>
+      </div>
+
+      <div>
+        <span>Tiempo del vuelo: </span>
+        <p>{{ vuelo.tiempo }}</p>
+      </div>
+
+
+      <!-- <ul class="list-group">
+        <li class="bg-dark list-group-item text-white">Pasajeros:</li>
+        <li class="list-group-item"
+          *ngFor="let pasajero of vuelo.pasajeros">{{ pasajero.firstName }} {{ pasajero.lastName }}</li>
+      </ul> -->
+    </div>
+
+
+
+  </li>
+</div>
