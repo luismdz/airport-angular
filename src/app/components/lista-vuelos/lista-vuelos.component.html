@@ -9,8 +9,11 @@
     <div class="content">
       <span class="id">{{ vuelo.id }}</span>
       <div>
-        <span>Pais Destino: </span>
-        <p>{{ vuelo.paisDestino }}</p>
+        <p class="font-weight-bold">
+          Republica Dominicana
+          <i class="fas fa-arrow-right mx-2"></i>
+          {{ vuelo.paisDestino }}
+        </p>
       </div>
 
       <div>
@@ -23,15 +26,11 @@
         <p>{{ vuelo.tiempo }}</p>
       </div>
 
-
-      <!-- <ul class="list-group">
-        <li class="bg-dark list-group-item text-white">Pasajeros:</li>
-        <li class="list-group-item"
-          *ngFor="let pasajero of vuelo.pasajeros">{{ pasajero.firstName }} {{ pasajero.lastName }}</li>
-      </ul> -->
+      <div>
+        <span>Cantidad de Pasajeros: </span>
+        <p>{{ vuelo.qty }}</p>
+      </div>
     </div>
-
-
 
   </li>
 </div>

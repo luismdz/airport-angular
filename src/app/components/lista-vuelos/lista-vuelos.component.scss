@@ -20,7 +20,7 @@
     span.id {
       font-weight: bold;
       font-size: 20px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     span {
@@ -28,7 +28,7 @@
     }
 
     p {
-      margin-bottom: 0;
+      margin-bottom: .25rem;
       display: inline-block;
       font-weight: lighter;
     }
@@ -36,5 +36,15 @@
 
   &:hover {
     background-color: rgb(236, 232, 232);
+  }
+}
+
+@media(max-width:550px) {
+  img {
+    display: none;
+  }
+
+  span.id {
+    margin-bottom: 1.5rem;
   }
 }

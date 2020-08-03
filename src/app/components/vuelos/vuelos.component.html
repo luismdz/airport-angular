@@ -2,7 +2,20 @@
   <h4 class="display-4 mb-4">Registrar nuevo vuelo</h4>
   <form>
     <div class="form-group">
-      <label for="pais">Pais</label>
+      <label for="pais">Pais Origen</label>
+      <select name="paises"
+        id="paises"
+        class="custom-select">
+        <option value=null
+          selected
+          disabled>
+          Republica Dominicana
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="pais">Pais Destino</label>
       <select [(ngModel)]="vuelo.paisDestino"
         name="paises"
         id="paises"

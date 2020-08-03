@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./lista-vuelos.component.scss']
 })
 export class ListaVuelosComponent implements OnInit {
-  vuelos: Vuelo[];
+  vuelos: object[] = [];
 
   constructor(
     public vuelosService: VuelosService,
@@ -21,9 +21,15 @@ export class ListaVuelosComponent implements OnInit {
   }
 
   cargarInformacion(): void {
-    this.vuelos = [];
 
-    this.vuelos = this.vuelosService.getVuelos().filter(v => v.pasajeros !== null);
+    this.vuelosService.getVuelos().sort(this.ordenar).filter(v => v.pasajeros !== null).forEach(v => {
+      this.vuelos.push(
+        {
+          ...v,
+          qty: v.pasajeros.length
+        }
+      );
+    });
 
     console.log(this.vuelos);
   }
@@ -31,6 +37,14 @@ export class ListaVuelosComponent implements OnInit {
   verDetalle(vuelo: Vuelo): void {
     console.log(vuelo);
     this.router.navigate(['details', 'vuelo'], { queryParams: vuelo });
+  }
+
+  ordenar(a: Vuelo, b: Vuelo): number {
+    if (a.id > b.id) {
+      return 1;
+    } else if (a.id < b.id) {
+      return -1;
+    }
   }
 
 }

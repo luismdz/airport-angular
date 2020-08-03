@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { VuelosService } from '../../services/vuelos.service';
+import { PaisesService } from '../../services/paises.service';
+
 import { Vuelo } from 'src/app/models/vuelo.model';
 import { Pasajero } from 'src/app/models/pasajero.model';
 
@@ -10,15 +12,24 @@ import { Pasajero } from 'src/app/models/pasajero.model';
 })
 export class HomeComponent implements OnInit {
   vuelos: Vuelo[];
+  paises: string[];
+
   vuelo: Vuelo = new Vuelo();
 
   constructor(
-    public vuelosService: VuelosService
+    public vuelosService: VuelosService,
+    public paisesService: PaisesService,
   ) {
     this.vuelos = vuelosService.getVuelos();
+    this.paises = this.vuelos.map(v => v.paisDestino);
   }
 
   ngOnInit(): void {
+  }
+
+  getVuelosPorPais(pais: string): void {
+    this.vuelos = this.vuelosService.getVuelos();
+    this.vuelos = this.vuelos.filter(v => v.paisDestino === pais);
   }
 
   getDataVuelo(id: string): void {

@@ -4,6 +4,10 @@
 
 <div class="content mt-4">
   <div>
+    <span>Pais Origen: </span>
+    <p>Republica Dominicana</p>
+  </div>
+  <div>
     <span>Pais Destino: </span>
     <p>{{ vuelo.paisDestino }}</p>
   </div>
@@ -23,9 +27,26 @@
     <li class="bg-light list-group-item font-weight-bold">Pasajeros</li>
     <li class="list-group-item"
       *ngFor="let pasajero of vuelo.pasajeros; let i = index">
-      <div class="name">
-        {{ pasajero.firstName }} {{ pasajero.lastName }}
+      <div class="text-content">
+        <div class="name">
+          {{ pasajero.firstName }} {{ pasajero.lastName }}
+        </div>
+
+        <div class="email">
+          <i class="fas fa-at"></i>
+          <p>
+            {{ pasajero.email }}
+          </p>
+        </div>
+
+        <div>
+          <span>Edad:</span>
+          <p>
+            {{ pasajero. age }}
+          </p>
+        </div>
       </div>
+
       <div class="button">
         <button class="btn btn-danger"
           *ngIf="limite > 1"
