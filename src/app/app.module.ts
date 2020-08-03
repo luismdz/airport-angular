@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { PasajerosComponent } from './components/pasajeros/pasajeros.component';
 import { DetailsComponent } from './components/details/details.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DetailsComponent } from './components/details/details.component';
     NavbarComponent,
     HomeComponent,
     PasajerosComponent,
-    DetailsComponent
+    DetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -65,7 +65,7 @@
   </app-pasajeros>
 
   <button class="btn btn-dark"
-    *ngIf="vuelo.pasajeros"
+    *ngIf="pasajeroAgregado && vuelo.pasajeros.length > 0"
     (click)="registrar()">Registrar Vuelo</button>
 
 </div>

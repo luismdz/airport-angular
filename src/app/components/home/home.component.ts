@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VuelosService } from '../../services/vuelos.service';
 import { PaisesService } from '../../services/paises.service';
+import { Router } from '@angular/router';
 
 import { Vuelo } from 'src/app/models/vuelo.model';
 import { Pasajero } from 'src/app/models/pasajero.model';
@@ -14,11 +15,14 @@ export class HomeComponent implements OnInit {
   vuelos: Vuelo[];
   paises: string[];
 
+  pasajeroAgregado = false;
+
   vuelo: Vuelo = new Vuelo();
 
   constructor(
     public vuelosService: VuelosService,
     public paisesService: PaisesService,
+    public router: Router
   ) {
     this.vuelos = vuelosService.getVuelos();
     this.paises = this.vuelos.map(v => v.paisDestino);
@@ -40,12 +44,16 @@ export class HomeComponent implements OnInit {
 
   obtener(pasajeros: Pasajero[]): void {
     this.vuelo.pasajeros = pasajeros;
+    this.pasajeroAgregado = true;
   }
 
   registrar(): void {
     if (this.vuelo.pasajeros !== null) {
       console.log(this.vuelo);
       this.vuelosService.save(this.vuelo);
+
+      this.router.navigate(['details', 'vuelo'], { queryParams: this.vuelo });
     }
+
   }
 }

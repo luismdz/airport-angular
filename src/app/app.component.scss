@@ -1,6 +1,7 @@
 .main-container {
   margin: 2rem auto;
   width: 60%;
+  min-height: calc(100vh - 170px);
 }
 
 @media(max-width:715px) {
